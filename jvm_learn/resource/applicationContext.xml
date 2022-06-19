@@ -10,9 +10,23 @@
                         http://www.springframework.org/schema/aop
                         https://www.springframework.org/schema/aop/spring-aop.xsd">
     <context:component-scan base-package="five_week"></context:component-scan>
-    <context:component-scan base-package="seven_week"></context:component-scan>
 <!--    <bean id="student" class="five_week.Student">-->
 <!--        <property name="id" value="001"></property>-->
 <!--        <property name="name" value="单年年"></property>-->
 <!--    </bean>-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <bean id="master" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${master.jdbc.driver}"/>
+        <property name="url" value="${master.jdbc.url}"/>
+        <property name="username" value="${master.jdbc.username}"/>
+        <property name="password" value="${master.jdbc.password}"/>
+        <property name="filters" value="stat,wall"/>
+    </bean>
+    <bean id="slave" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${master.jdbc.driver}"/>
+        <property name="url" value="${master.jdbc.url}"/>
+        <property name="username" value="${master.jdbc.username}"/>
+        <property name="password" value="${master.jdbc.password}"/>
+    </bean>
 </beans>

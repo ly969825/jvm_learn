@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
 public class RoutingDataSourceAdvisor {
     private Logger log= (Logger) LoggerFactory.getLogger(DynamicDataSource.class);
  
-    @Pointcut("execution(@RoutingDataSource * com.ljh..*Service+.*(..))")
+    @Pointcut("execution(@RoutingDataSource * seven_week..*(..))")
     private void routingDataSource() {
     }
  

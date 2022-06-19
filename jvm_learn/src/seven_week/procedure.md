@@ -1,0 +1,12 @@
+##使用存储过程执行一百万条数据
+DELIMITER $$
+CREATE PROCEDURE test.P_INSERT()
+BEGIN
+DECLARE NUM INT DEFAULT 0;
+WHILE NUM<1000000 DO
+
+	INSERT INTO test.`user` (user_id,user_name,age) VALUES (num,CONCAT('小名',NUM,NULL),22);
+	SET NUM=NUM+1;
+	END WHILE;
+	END$$
+DELIMITER;

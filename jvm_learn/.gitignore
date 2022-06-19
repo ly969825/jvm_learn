@@ -33,3 +33,5 @@ out
 gen
 
 !/jvm_learn.iml
+!/jvm_learn.iml
+!/.gitignore
